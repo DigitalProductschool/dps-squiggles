@@ -11,6 +11,9 @@
 # production
 /build
 
+# sources
+/src
+
 # misc
 /_design
 .DS_Store

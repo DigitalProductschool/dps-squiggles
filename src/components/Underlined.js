@@ -5,11 +5,10 @@ const SvgComponent = (props) => {
   return (
     <svg
       {...props}
-      width={w+5}
+      width={w + 5}
       height={13}
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className="Squiggle"
     >
       <path
         d={`M5 8.8c${Math.round((135 / 220) * props.width)}-2 ${Math.round(
