@@ -1,7 +1,9 @@
 {
-  "name": "dps-squiggles",
-  "version": "0.1.0",
+  "name": "@dpschool/squiggles",
+  "version": "0.2.0",
   "main": "dist/index.js",
+  "description": "Animated hand-drawn squiggles for the DPS Website",
+  "author": "Marcus Paeschke",
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -28,5 +30,18 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DigitalProductschool/dps-squiggles.git"
+  },
+  "bugs": {
+    "url": "https://github.com/DigitalProductschool/dps-squiggles/issues"
+  },
+  "keywords": [
+    "svg",
+    "animation"
+  ],
+  "license": "UNLICENSED"
 }

@@ -14,6 +14,9 @@
 # sources
 /src
 
+# examples
+/examples
+
 # misc
 /_design
 .DS_Store

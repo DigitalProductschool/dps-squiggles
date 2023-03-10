@@ -2,7 +2,7 @@ import React from "react";
 import { createRoot } from "react-dom/client";
 import Underlined from "./components/Underlined";
 
-const squiggles = document.querySelectorAll(".dpsSquiggle");
+const squiggles = document.querySelectorAll(".dps-squiggle");
 
 squiggles.forEach((span) => {
   const boundingRect = span.getBoundingClientRect();
