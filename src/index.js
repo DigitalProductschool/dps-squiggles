@@ -1,4 +1,3 @@
-import React from "react";
 import { createRoot } from "react-dom/client";
 import ResponsiveSquiggle from "./components/ResponsiveSquiggle";
 
@@ -9,7 +8,7 @@ function addSquiggles() {
     const root = createRoot(element);
     root.render(
       <>
-        {element.innerHTML}
+        <span dangerouslySetInnerHTML={{ __html: element.innerHTML }} />
         <ResponsiveSquiggle type={element.dataset.type} domElement={element} />
       </>
     );

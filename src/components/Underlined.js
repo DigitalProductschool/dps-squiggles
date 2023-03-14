@@ -9,14 +9,14 @@ const Underlined = (props) => {
       style={props.style || null}
     >
       <path
-        d={`M5 8.8c${Math.round((135 / 220) * props.width)}-2 ${Math.round(
-          (180 / 220) * props.width
-        )} 1.55 ${Math.round((210 / 220) * props.width)}-4`}
+        d={`M5 8.8c${Math.round((135 / 220) * w)}-2 ${Math.round(
+          (180 / 220) * w
+        )} 1.55 ${Math.round((210 / 220) * w)}-4`}
         stroke={props.stroke || "#0BBDFF"}
         strokeWidth={8}
         strokeLinecap="round"
-        strokeDasharray={Math.ceil(props.width)}
-        strokeDashoffset={0 /*Math.ceil(props.width)*/}
+        strokeDasharray={w}
+        strokeDashoffset={0}
       >
         <animate
           attributeName="stroke-dashoffset"

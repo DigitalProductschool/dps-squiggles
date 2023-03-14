@@ -1,23 +1,26 @@
 import useWindowSize from "../hooks/use-window-size";
 import Underlined from "./Underlined";
+import Circled from "./Circled";
 import Shine from "./Shine";
 import Days90 from "./Days90";
 
 const ResponsiveSquiggle = (props) => {
 	const view = useWindowSize();
 	const el = props.domElement;
-	let style = null;
 	let color = el.dataset.color || "#0BBDFF";
 	let duration = el.dataset.duration || "2s";
 	let delay = el.dataset.delay || "0s";
 
+	let style = { position: "absolute" };
+
+	if (el.dataset.rotate) {
+		style.transform = `rotate(${el.dataset.rotate})`;
+	}
+
 	switch (props.type) {
 		case "underlined":
-			style = {
-				position: "absolute",
-				top: `${el.offsetTop + el.offsetHeight}px`,
-				left: `${el.offsetLeft}px`,
-			};
+			style.top = `${el.offsetTop + el.offsetHeight}px`;
+			style.left = `${el.offsetLeft}px`;
 			return (
 				<Underlined
 					style={style}
@@ -28,21 +31,25 @@ const ResponsiveSquiggle = (props) => {
 					windowWidth={view[0]}
 				/>
 			);
+		case "circled": // w=274, h=112
+			style.top = `${el.offsetTop + el.offsetHeight / 2 - 56}px`;
+			style.left = `${el.offsetLeft + el.offsetWidth / 2 - 137}px`;
+			return (
+				<Circled
+					style={style}
+					stroke={color}
+					duration={duration}
+					begin={delay}
+					windowWidth={view[0]}
+				/>
+			);
 		case "shine":
-			style = {
-				position: "absolute",
-			};
-
-			if (el.dataset.rotate) {
-				style.transform = `rotate(${el.dataset.rotate})`;
-			}
-
 			return (
 				<Shine
 					style={style}
 					stroke={color}
 					duration={duration}
-					begin={delay}					
+					begin={delay}
 					windowWidth={view[0]}
 				/>
 			);
