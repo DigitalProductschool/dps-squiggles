@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <title>Squiggles Example</title>
+  </head>
+  <body>
+    <div class="content">
+      <h1>
+        Normal
+        <span class="dps-squiggle" data-type="underlined">HTML</span> Headline
+      </h1>
+
+      <p>
+        A paragraph with a
+        <span class="dps-squiggle" data-type="underlined"
+          >squiggly underlined text</span
+        >
+        embedded here. This is quite important to check, that the squiggles
+        don't really overlap the next line in the text, right?
+      </p>
+    </div>
+    <div>
+      Some
+      <span class="dps-squiggle" data-type="underlined"
+        >text in between that also get's</span
+      >
+      underlined
+    </div>
+    <script type="module">
+      // just want htm + preact in a single file? there's a highly-optimized version of that:
+      import { html, render, useState, useEffect, useLayoutEffect } from 'https://unpkg.com/htm/preact/standalone.module.js';
+
+      function useWindowSize() {
+        const [size, setSize] = useState([0, 0]);
+        useLayoutEffect(() => {
+          function updateSize() {
+            setSize([window.innerWidth, window.innerHeight]);
+          }
+          window.addEventListener("resize", updateSize);
+          updateSize();
+          return () => window.removeEventListener("resize", updateSize);
+        }, []);
+        return size;
+      }
+
+
+      const ResponsiveSquiggle = (props) => {
+        const view = useWindowSize();
+        const el = props.domElement;
+
+        const style = {
+          position: "absolute",
+          top: `${el.offsetTop+el.offsetHeight}px`,
+          left: `${el.offsetLeft}px`,
+        }
+
+        return html`<${Underlined} style=${style} width=${el.offsetWidth} />`;
+      }
+
+
+      const Underlined = (props) => {
+        const w = Math.ceil(props.width) || 220;
+        return html`<svg
+            width=${w + 5}
+            height=${13}
+            style=${props.style}
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d=${`M5 8.8c${Math.round((135 / 220) * w)}-2 ${Math.round(
+                (180 / 220) * w
+              )} 1.55 ${Math.round((210 / 220) * w)}-4`}
+              stroke=${props.stroke || "#0BBDFF"}
+              stroke-width=${8}
+              stroke-linecap="round"
+              stroke-dasharray=${Math.ceil(w)}
+              stroke-dashoffset=${0 /*Math.ceil(props.width)*/}
+            >
+              <animate
+                attributeName="stroke-dashoffset"
+                values=${`${w};0;0;${-w}`}
+                dur="3s"
+                repeatCount="indefinite"
+              />
+            </path>
+          </svg>`;
+      };      
+
+      function addSquiggles() {
+        const squiggles = document.querySelectorAll(".dps-squiggle");
+      
+        squiggles.forEach((span) => {
+          render(html`<${ResponsiveSquiggle} type="underlined" domElement=${span} />`, span);      
+        });
+
+      }
+
+      document.addEventListener("DOMContentLoaded", addSquiggles, false);
+
+    </script>    
+  </body>
+</html>
