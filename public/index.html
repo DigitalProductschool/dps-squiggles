@@ -66,7 +66,7 @@
       <p>Any HTML element with the class <code>.dps-squiggle</code> and a few required data-attributes will get an animated SVG injected.</p>
       <b>Attributes for all squiggles</b>
       <ul>
-        <li><b>data-type:</b> can be any of <code>underlined</code>, <code>shine</code>, ...(tbd)</li>
+        <li><b>data-type:</b> can be any of <code>underlined</code>, <code>circled</code>, <code>shine</code>, ...(tbd)</li>
         <li><b>data-color:</b> set the stroke color as a hex code, i.e. <code>#FF00A1</code></li>
         <li><b>data-duration:</b> set the duration of the animation, i.e. <code>2s</code></li>
         <li><b>data-delay:</b> (optional) if the animation should begin playing with a delay of, i.e. <code>1s</code></li>
@@ -77,6 +77,24 @@
       <h2 class="dps-squiggle" data-type="circled">Keep in mind</h2>
       <br />
       <p>The SVG animations are only injected after the page has loaded. If that takes a lof of time, the graphics might appear with a delay although other content is already rendered. Also if the page content changes dynamically, you probably won't get animations injected.
-    </div>
+      <br />
+      <h2>For developers</h2>
+      <p>I'm deeply sorry, but there's no automatic deployment pipeline for this yet. In order to create/release a new version, you need to:</p>
+      <ul style="position: relative;">
+        <li>Develop as usual with <code>npm start</code> and if you did fancy new stuff, don't forget to document it here</li>
+        <li>When done, update the version number in <code>package.json</code></li>
+        <li>Run <code>npm run build</code> to package the Javascript</li>
+        <li>Move <code>build/static/js/main.something.js</code> into <code>dist/</code> and rename it to index.js</li>
+        <li>Remove the last line referencing the source map from the index.js file</li>
+        <li>Commit and push the changes to the repo (will deploy to Vercel)</li>
+        <li>Run <code>npm publish --access public</code> to publish the library to NPM and UNPKG<span
+          class="dps-squiggle"
+          data-type="shine"
+          data-rotate="120deg"
+          data-color="#FF00A1"
+          style="position: absolute; right: 130px;"
+        ></span></li>
+      </ul>
+    </div>    
   </body>
 </html>
