@@ -10,7 +10,7 @@ function addSquiggles() {
     root.render(
       <>
         {span.innerHTML}
-        <ResponsiveSquiggle type="underlined" domElement={span} />
+        <ResponsiveSquiggle type={span.dataset.type} domElement={span} />
       </>
     );
   });
