@@ -20,8 +20,9 @@ const Underlined = (props) => {
       >
         <animate
           attributeName="stroke-dashoffset"
-          values={`${w};0;0;${-w}`}
-          dur="3s"
+          values={`${w};0;0;${w}`}
+          dur={props.duration || "2s"}
+          begin={props.begin || "0s"}
           repeatCount="indefinite"
         />
       </path>

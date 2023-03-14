@@ -5,17 +5,15 @@ import ResponsiveSquiggle from "./components/ResponsiveSquiggle";
 function addSquiggles() {
   const squiggles = document.querySelectorAll(".dps-squiggle");
 
-  squiggles.forEach((span) => {
-    const root = createRoot(span);
+  squiggles.forEach((element) => {
+    const root = createRoot(element);
     root.render(
       <>
-        {span.innerHTML}
-        <ResponsiveSquiggle type={span.dataset.type} domElement={span} />
+        {element.innerHTML}
+        <ResponsiveSquiggle type={element.dataset.type} domElement={element} />
       </>
     );
   });
 }
 
 document.addEventListener("DOMContentLoaded", addSquiggles, false);
-
-/* todo: re-position on window-resize */

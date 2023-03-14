@@ -14,7 +14,7 @@
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <link rel="stylesheet" href="/index.css" />
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
@@ -40,32 +40,34 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
     <div class="content">
-      <h1>
-        Normal
-        <span class="dps-squiggle" data-type="underlined">HTML</span> Headline
-      </h1>
-
-      <p>
-        A paragraph with a
-        <span class="dps-squiggle" data-type="underlined"
-          >squiggly underlined text</span
-        >
-        embedded here. This is quite important to check, that the squiggles
-        don't really overlap the next line in the text, right?
+      <h1 style="position: relative;">
+        Funky
+        <span class="dps-squiggle" data-type="underlined">squiggly</span> lines
+        for the DPS Website
         <span
           class="dps-squiggle"
           data-type="shine"
           data-rotate="30deg"
           data-color="#FF00A1"
+          style="position: absolute; right: 100px; top: -70px"
         ></span>
+      </h1>
+
+      <p>
+        Here we have a little script that uses animated SVG graphics with a mix of hardcoded paths and programmatically generated attributes to create these fun decorations for the website of the <span class="dps-squiggle" data-type="underlined" data-delay="1s">Digital Product School</span>.</p>
       </p>
-    </div>
-    <div>
-      Some
-      <span class="dps-squiggle" data-type="underlined"
-        >text in between that also get's</span
-      >
-      underlined
+      <span
+        class="dps-squiggle"
+        data-type="90days"
+        data-color="#804FBB"
+      ></span>
+      <br /><br />
+      <h2>Usage</h2>
+      <p>Any HTML element with the class <code>.dps-squiggle</code> and a few required data-attributes will get an animated SVG injected.</p>
+      <ul>
+        <li><b>data-type:</b> can be any of <code>underlined</code>, <code>shine</code>, ...(tbd)</li>
+        <li><b>data-color:</b> set the stroke color as a hex code, i.e. <code>#FF00A1</code></li>
+      </ul>
     </div>
   </body>
 </html>
