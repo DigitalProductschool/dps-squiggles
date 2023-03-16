@@ -48,12 +48,14 @@ const ResponsiveSquiggle = (props) => {
 				/>
 			);
 		case "shine":
+			let direction = el.dataset.direction || "out";
 			return (
 				<Shine
 					style={style}
 					stroke={color}
 					strokeWidth={strokeWidth}
 					duration={duration}
+					direction={direction}
 					begin={delay}
 				/>
 			);
