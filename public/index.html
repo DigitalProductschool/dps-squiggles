@@ -75,12 +75,13 @@
         <li><b>data-rotate:</b> (optional) rotate the SVG, i.e. <code>30deg</code></li>
       </ul>
       <p>For an example, open the developer tools of your browser and take a look at the HTML source code of this page.</p>
+      <p>Careful: When you want a squiggle relative to several words, please make sure to use a non-breaking space <code>&amp;nbsp;</code>in between them, otherwise the position will be messed up when the texts get's broken into several lines.</p>
       <br />
       <h2 class="dps-squiggle" data-type="circled">Keep in mind</h2>
       <br />
       <p>The SVG animations are only injected after the page has loaded. If that takes a lof of time, the graphics might appear with a delay although other content is already rendered. Also if the page content changes dynamically, you probably won't get animations injected.
       <br />
-      <h2>For developers</h2>
+      <h2 class="dps-squiggle" data-type="wave" data-duration="3s">For developers</h2>
       <p>I'm deeply sorry, but there's no automatic deployment pipeline for this yet. In order to create/release a new version, you need to:</p>
       <ul style="position: relative;">
         <li>Develop as usual with <code>npm start</code> and if you did fancy new stuff, don't forget to document it here</li>
@@ -98,6 +99,16 @@
         ></span></li>        
       </ul>
       <p>Embed the script into the website of your choice with <code>&lt;script type="text/javascript" src="https://unpkg.com/@dpschool/squiggles@0.6.0/dist/index.js"&gt;&lt;/script&gt;</code>
+        <br/><br/>
+        <h2>Whoaaa...?</h2>
+        <p style="position: relative;">Something is broken or missing? Don't be sad, let us know!<span
+          class="dps-squiggle"
+          data-type="sadface"
+          data-rotate="18deg"
+          data-color="#0917C5"
+          data-duration="3s"
+          style="position: absolute; right: 0;"
+        ></span></p>
     </div>    
   </body>
 </html>

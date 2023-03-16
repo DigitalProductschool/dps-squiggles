@@ -3,6 +3,8 @@ import Underlined from "./Underlined";
 import Circled from "./Circled";
 import Shine from "./Shine";
 import Days90 from "./Days90";
+import Wave from "./Wave";
+import SadFace from "./SadFace";
 
 const ResponsiveSquiggle = (props) => {
 	const view = useWindowSize();
@@ -55,12 +57,34 @@ const ResponsiveSquiggle = (props) => {
 					begin={delay}
 				/>
 			);
+		case "wave":
+			style.top = `${el.offsetTop + el.offsetHeight - 2}px`;
+			style.left = `${el.offsetLeft + el.offsetWidth / 2 - 147}px`;
+			return (
+				<Wave
+					style={style}
+					stroke={color}
+					strokeWidth={strokeWidth}
+					duration={duration}
+					begin={delay}
+				/>
+			);
 		case "90days":
 			style = {
 				position: "absolute",
 			};
 			return (
 				<Days90
+					style={style}
+					stroke={color}
+					strokeWidth={strokeWidth}
+					duration={duration}
+					begin={delay}
+				/>
+			);
+		case "sadface":
+			return (
+				<SadFace
 					style={style}
 					stroke={color}
 					strokeWidth={strokeWidth}

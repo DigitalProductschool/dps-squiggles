@@ -1,6 +1,6 @@
 const Circled = (props) => {
-  const w = Math.ceil(props.width) || 274;
-  const h = Math.ceil(props.height) || 112;
+  const w = 274;
+  const h = 112;
   const u = 2 * w + 2 * h; // approx circumference ;-)
   return (
     <svg
