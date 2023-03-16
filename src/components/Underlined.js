@@ -13,7 +13,7 @@ const Underlined = (props) => {
           (180 / 220) * w
         )} 1.55 ${Math.round((210 / 220) * w)}-4`}
         stroke={props.stroke || "#0BBDFF"}
-        strokeWidth={8}
+        strokeWidth={props.strokeWidth || 8}
         strokeLinecap="round"
         strokeDasharray={w}
         strokeDashoffset={0}

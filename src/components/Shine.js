@@ -14,11 +14,11 @@ const Shine = (props) => {
         strokeWidth="8"
         strokeLinecap="round"
         strokeDasharray={100}
-        strokeDashoffset={0}
+        strokeDashoffset={100}
       >
         <animate
           attributeName="stroke-dashoffset"
-          values={`100;0;0;100`}
+          values={`100;0;0;0;0;0;100;100`}
           dur={props.duration || "2s"}
           begin={props.begin || "0s"}
           repeatCount="indefinite"
@@ -30,11 +30,11 @@ const Shine = (props) => {
         strokeWidth="8"
         strokeLinecap="round"
         strokeDasharray={100}
-        strokeDashoffset={0}
+        strokeDashoffset={100}
       >
         <animate
           attributeName="stroke-dashoffset"
-          values={`100;0;0;100`}
+          values={`100;100;0;0;0;100;100`}
           dur={props.duration || "2s"}
           begin={props.begin || "0s"}
           repeatCount="indefinite"
@@ -46,11 +46,11 @@ const Shine = (props) => {
         strokeWidth="8"
         strokeLinecap="round"
         strokeDasharray={100}
-        strokeDashoffset={0}
+        strokeDashoffset={100}
       >
         <animate
           attributeName="stroke-dashoffset"
-          values={`100;0;0;100`}
+          values={`100;100;100;0;0;100;100`}
           dur={props.duration || "2s"}
           begin={props.begin || "0s"}
           repeatCount="indefinite"
@@ -62,11 +62,11 @@ const Shine = (props) => {
         strokeWidth="8"
         strokeLinecap="round"
         strokeDasharray={100}
-        strokeDashoffset={0}
+        strokeDashoffset={100}
       >
         <animate
           attributeName="stroke-dashoffset"
-          values={`100;0;0;100`}
+          values={`100;100;100;100;0;100;100`}
           dur={props.duration || "2s"}
           begin={props.begin || "0s"}
           repeatCount="indefinite"

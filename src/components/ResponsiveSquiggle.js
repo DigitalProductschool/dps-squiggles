@@ -10,6 +10,7 @@ const ResponsiveSquiggle = (props) => {
 	let color = el.dataset.color || "#0BBDFF";
 	let duration = el.dataset.duration || "2s";
 	let delay = el.dataset.delay || "0s";
+	let strokeWidth = parseInt(el.dataset.stroke) || 8;
 
 	let style = { position: "absolute" };
 
@@ -19,13 +20,14 @@ const ResponsiveSquiggle = (props) => {
 
 	switch (props.type) {
 		case "underlined":
-			style.top = `${el.offsetTop + el.offsetHeight}px`;
+			style.top = `${el.offsetTop + el.offsetHeight - 4}px`;
 			style.left = `${el.offsetLeft}px`;
 			return (
 				<Underlined
 					style={style}
 					width={el.offsetWidth}
 					stroke={color}
+					strokeWidth={strokeWidth}
 					duration={duration}
 					begin={delay}
 					windowWidth={view[0]}
@@ -38,9 +40,9 @@ const ResponsiveSquiggle = (props) => {
 				<Circled
 					style={style}
 					stroke={color}
+					strokeWidth={strokeWidth}
 					duration={duration}
 					begin={delay}
-					windowWidth={view[0]}
 				/>
 			);
 		case "shine":
@@ -48,9 +50,9 @@ const ResponsiveSquiggle = (props) => {
 				<Shine
 					style={style}
 					stroke={color}
+					strokeWidth={strokeWidth}
 					duration={duration}
 					begin={delay}
-					windowWidth={view[0]}
 				/>
 			);
 		case "90days":
@@ -58,7 +60,13 @@ const ResponsiveSquiggle = (props) => {
 				position: "absolute",
 			};
 			return (
-				<Days90 style={style} stroke={color} windowWidth={view[0]} />
+				<Days90
+					style={style}
+					stroke={color}
+					strokeWidth={strokeWidth}
+					duration={duration}
+					begin={delay}
+				/>
 			);
 		default:
 			return null;
