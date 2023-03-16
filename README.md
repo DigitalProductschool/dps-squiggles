@@ -1,70 +1,45 @@
-# Getting Started with Create React App
+# Funky squiggly lines for the DPS Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Here we have a little script that uses animated SVG graphics with a mix of hardcoded paths and programmatically generated attributes to create these fun decorations for the website of the Digital Product School.
 
-## Available Scripts
 
-In the project directory, you can run:
 
-### `npm start`
+## Usage
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Any HTML element with the class `.dps-squiggle` and a few required data-attributes will get an animated SVG injected.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Attributes for all squiggles
 
-### `npm test`
+- data-type: can be any of `underlined`, `circled`, `shine`, `wave`, `sadface`, `90days`, ...(tbd)
+- data-color: set the stroke color as a hex code, i.e. `#FF00A1`
+- data-stroke: thickness of the stroke, i.e. `8`
+- data-duration: set the duration of the animation, i.e. `2s`
+- data-delay: (optional) if the animation should begin playing with a delay of, i.e. `1s`
+- data-rotate: (optional) rotate the SVG, i.e. `30deg`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+For an example, open the developer tools of your browser and take a look at the HTML source code of this page.
 
-### `npm run build`
+Careful: When you want a squiggle relative to several words, please make sure to use a non-breaking space `&nbsp;` in between them, otherwise the position will be messed up when the texts get's broken into several lines.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Keep in mind
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The SVG animations are only injected after the page has loaded. If that takes a lof of time, the graphics might appear with a delay although other content is already rendered. Also if the page content changes dynamically, you probably won't get animations injected.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## For developers
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+I'm deeply sorry, but there's no automatic deployment pipeline for this yet. In order to create/release a new version, you need to:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- Develop as usual with `npm start` and if you did fancy new stuff, don't forget to document it here
+- When done, update the version number in `package.json`
+- Run `npm run build` to package the Javascript
+- Move `build/static/js/main.something.js` into `dist/` and rename it to index.js
+- Remove the last line referencing the source map from the index.js file
+- Commit and push the changes to the repo (will deploy to Vercel)
+- Run `npm publish --access public` to publish the library to NPM and UNPKG
+- Embed the script into the website of your choice with `<script type="text/javascript" src="https://unpkg.com/@dpschool/squiggles@0.6.0/dist/index.js"></script>`
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Whoaaa...?
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Something is broken or missing? Don't be sad, let us know!

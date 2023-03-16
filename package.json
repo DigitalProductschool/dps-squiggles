@@ -1,6 +1,6 @@
 {
   "name": "@dpschool/squiggles",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "main": "dist/index.js",
   "description": "Animated hand-drawn squiggles for the DPS Website",
   "author": "Marcus Paeschke",
